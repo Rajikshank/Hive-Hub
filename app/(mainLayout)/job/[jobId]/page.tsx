@@ -3,7 +3,7 @@ import { deleteSavedJobPost, saveJobPost } from "@/actions/saveJobPostAction";
 import { JsonToHtml } from "@/components/views/JsonToHtml";
 import { ApplyButton, SaveJobButton } from "@/components/views/SubmitButton";
 import { Badge } from "@/components/ui/badge";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { auth } from "@/utils/auth";
@@ -36,7 +36,7 @@ type suggestionType = {
 
 const aj = Arcjet.withRule(
   detectBot({
-    mode: "DRY_RUN",
+    mode: "LIVE",
     allow: ["CATEGORY:SEARCH_ENGINE", "CATEGORY:PREVIEW"],
   })
 );
@@ -45,7 +45,7 @@ function getClient(session: boolean) {
   if (session) {
     return aj.withRule(
       tokenBucket({
-        mode: "DRY_RUN",
+        mode: "LIVE",
         capacity: 100,
         interval: 60,
         refillRate: 30,
@@ -54,7 +54,7 @@ function getClient(session: boolean) {
   } else {
     return aj.withRule(
       tokenBucket({
-        mode: "DRY_RUN",
+        mode: "LIVE",
         capacity: 100,
         interval: 60,
         refillRate: 10,
