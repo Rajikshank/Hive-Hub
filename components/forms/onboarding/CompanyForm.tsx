@@ -199,7 +199,7 @@ export function CompanyForm( ) {
                       onUploadError={(err) =>
                         console.log("something went wrong", err)
                       }
-                      className="ut-button:hidden rounded-full  ut-button:text-white ut-button:hover:bg-primary/90 ut-label:text-muted-foreground ut-allowed-content:text-muted-foreground border-primary"
+                      className="ut-button:bg-primary rounded-full  ut-button:text-white ut-button:hover:bg-primary/90 ut-label:text-muted-foreground ut-allowed-content:text-muted-foreground border-primary"
                     />
                   )}
                 </div>
