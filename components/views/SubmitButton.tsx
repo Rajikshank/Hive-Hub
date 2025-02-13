@@ -56,10 +56,50 @@ export function SaveJobButton({ savedJob }: { savedJob: boolean }) {
         </>
       ) : (
         <>
-          <Heart className={cn(savedJob ? "fill-current text-red-500" : "","size-4 transition-colors")} />
-          {savedJob ? "Saved" :"Save Job"}
+          <Heart
+            className={cn(
+              savedJob ? "fill-current text-red-500" : "",
+              "size-4 transition-colors"
+            )}
+          />
+          {savedJob ? "Saved" : "Save Job"}
         </>
       )}
+    </Button>
+  );
+}
+
+export function ApplyButton({
+  isAlreadyApplied,
+}: {
+  isAlreadyApplied: boolean;
+}) {
+  const { pending } = useFormStatus();
+
+  return pending ? (
+    <Button
+      type="submit"
+      className={"w-full "}
+      variant= {"default"}
+     
+    >
+     
+       
+         
+          <Loader2 className="size-4 animate-spin" /> <span>Applying...</span>
+        
+     
+     
+    </Button>
+  ) : (
+    <Button
+      type="submit"
+      className={"w-full "}
+      variant={isAlreadyApplied ? "secondary" : "default"}
+      disabled={isAlreadyApplied}
+    >
+       
+      {  isAlreadyApplied ? "Applied" : "Apply Now"}
     </Button>
   );
 }

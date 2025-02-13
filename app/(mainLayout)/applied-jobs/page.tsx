@@ -107,9 +107,7 @@ export default async function MyJobPage() {
                       ? "Applied On"
                       : "Created at"}
                   </TableHead>
-                  {session.userType === "Company" && (
-                    <TableHead className=" text-center ">Candidates</TableHead>
-                  )}
+                 {session.userType==="Company" && <TableHead className=" text-center ">Candidates</TableHead>}
                   <TableHead className="text-right">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -128,40 +126,29 @@ export default async function MyJobPage() {
                     <TableCell>{listing.Company?.name}</TableCell>
                     <TableCell>{listing.jobTitle}</TableCell>
                     <TableCell>
-                      {session.userType === "JOB_SEEKER"
-                        ? listing.AppliedJobPost.filter(
-                            (item) => item.jobId === listing.id
-                          )[0]
-                            .status.charAt(0)
-                            .toUpperCase() +
-                          listing.AppliedJobPost.filter(
-                            (item) => item.jobId === listing.id
-                          )[0]
-                            .status.slice(1)
-                            .toLowerCase()
-                        : listing.status.charAt(0).toUpperCase() +
-                          listing.status.slice(1).toLowerCase()}
+                      {session.userType === "JOB_SEEKER" && listing.AppliedJobPost.filter((item)=>item.jobId ===listing.id)[0]. status.charAt(0).toUpperCase() +
+                       listing.AppliedJobPost.filter((item)=>item.jobId ===listing.id)[0]. status.slice(1).toLowerCase()}
                     </TableCell>
                     <TableCell>
-                      {session.userType === "JOB_SEEKER"
-                        ? listing.AppliedJobPost.filter(
-                            (item) => item.jobId === listing.id
-                          )[0].createdAt.toLocaleDateString("en-US", {
-                            month: "long",
-                            day: "numeric",
-                            year: "numeric",
-                          })
-                        : listing.createdAt.toLocaleDateString("en-US", {
-                            month: "long",
-                            day: "numeric",
-                            year: "numeric",
-                          })}
-                    </TableCell>
-                    {session.userType === "Company" && (
-                      <TableCell className="text-center">
-                        {listing.AppliedJobPost.length}
-                      </TableCell>
-                    )}
+                      {session.userType === "JOB_SEEKER" ?  listing.AppliedJobPost.filter(
+                        (item) => item.jobId === listing.id
+                      )[0].createdAt.toLocaleDateString("en-US", {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                         
+                      }) : listing. createdAt.toLocaleDateString("en-US", {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                         
+                      })} 
+                    </TableCell >
+                    {session.userType === "Company"  && <TableCell className="text-center">
+                      
+                      {listing.AppliedJobPost.length} 
+
+                    </TableCell> }
                     <TableCell className="text-right">
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -171,46 +158,41 @@ export default async function MyJobPage() {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
                           <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                          {session.userType === "Company" ? (
-                            <>
-                              {" "}
-                              <DropdownMenuItem asChild>
-                                <Link
-                                  href={`/my-jobs/${listing.id}/candidates`}
-                                >
-                                  <Users2 />
-                                  View Candidates
-                                </Link>
-                              </DropdownMenuItem>
-                              <DropdownMenuItem asChild>
-                                <Link href={`/my-jobs/${listing.id}/edit`}>
-                                  <PenBoxIcon />
-                                  Edit Job
-                                </Link>
-                              </DropdownMenuItem>
-                              <DropdownMenuItem asChild>
-                                <CopyLinks
-                                  jobUrl={`${process.env.NEXT_PUBLIC_URL}/job/${listing.id}`}
-                                />
-                              </DropdownMenuItem>
-                              <DropdownMenuSeparator />
-                              <DropdownMenuItem asChild>
-                                <Link href={`/my-jobs/${listing.id}/delete`}>
-                                  <XCircle />
-                                  Delete Job
-                                </Link>
-                              </DropdownMenuItem>{" "}
-                            </>
-                          ) : (
-                            <>
-                              <DropdownMenuItem asChild>
-                                <Link href={`/my-jobs/${listing.id}/delete`}>
-                                  <XCircle />
-                                  Cancel
-                                </Link>
-                              </DropdownMenuItem>
-                            </>
-                          )}
+                          {session.userType==="Company" ? <> <DropdownMenuItem asChild>
+                            <Link href={`/my-jobs/${listing.id}/candidates`}>
+                              <Users2 />
+                              View Candidates
+                            </Link>
+                          </DropdownMenuItem>
+
+                          <DropdownMenuItem asChild>
+                            <Link href={`/my-jobs/${listing.id}/edit`}>
+                              <PenBoxIcon />
+                              Edit Job
+                            </Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem asChild>
+                            <CopyLinks
+                              jobUrl={`${process.env.NEXT_PUBLIC_URL}/job/${listing.id}`}
+                            />
+                          </DropdownMenuItem>
+                          <DropdownMenuSeparator />
+
+                          <DropdownMenuItem asChild>
+                            <Link href={`/my-jobs/${listing.id}/delete`}>
+                              <XCircle />
+                              Delete Job
+                            </Link>
+                          </DropdownMenuItem> </> : <>
+                          <DropdownMenuItem asChild>
+                            <Link href={`/my-jobs/${listing.id}/delete`}>
+                              <XCircle />
+                             Cancel 
+                            </Link>
+                          </DropdownMenuItem>
+                          </> }
+
+                          
                         </DropdownMenuContent>
                       </DropdownMenu>
                     </TableCell>

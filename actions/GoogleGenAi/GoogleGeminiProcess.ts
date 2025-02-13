@@ -1,3 +1,4 @@
+"use server";
 import pdfParse from "pdf-parse";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import fetchPdf from "./fetchFile";
@@ -94,6 +95,73 @@ export async function generateResumeKeywords(resumeUrl: string) {
     console.log("relevant keywords", JSON.parse(suggestions));
     return JSON.parse(suggestions);
   }, [resumeUrl]);
+
+  return await cachedGeneration();
+}
+
+export async function generateJobDescription(
+  jobTitle: string,
+  jobLocation: string,
+  employementType: string,
+  companyName: string
+) {
+  const cachedGeneration = unstable_cache(async () => {
+    // Construct a prompt with both resume text and job description
+
+    const prompt = `
+    You are a professional HR copywriter skilled at crafting engaging and detailed job descriptions. Generate a job description in rich text format using the following parameters:
+
+- **jobTitle:** ${jobTitle}
+- **jobLocation:** ${jobLocation}
+- **employementType:** ${employementType}
+- **companyName:** ${companyName}
+
+The job description should include these sections(no need to include a title as already the title will be displayed from the data):
+
+1. **Job Overview:**  
+   Provide a concise summary of the role, including its key purpose and impact within the company.
+
+2. **Key Responsibilities:**  
+   List the main duties and responsibilities associated with the position in a clear, bullet-point format.
+
+3. **Qualifications:**  
+   Outline the required skills, experiences, and educational background. Include any preferred qualifications that would make a candidate stand out.
+
+4. **Company Overview:**  
+   Describe {companyName} in a way that highlights its culture, mission, and unique qualities. Explain why this company is a great place to work.
+
+5. **Benefits & Perks:**  
+   Detail any benefits, perks, or incentives that the company offers, such as health insurance, remote work options, career development opportunities, etc.
+
+6. **Application Process:**  
+   Provide instructions on how candidates can apply, along with any relevant deadlines or additional steps.
+
+Ensure the tone is professional, inviting, and tailored to attract high-quality candidates. The rich text format should include clear headings and should be compatible for the tip-tap rich text editor , bullet points, and appropriate emphasis where necessary.
+
+Make sure the description includes these:
+--good rich text format and stucture
+--Ats friendly words for the relevant job
+--emoji's and other word styling if needed
+--ensure the it matches the tiptap compatible rich text
+
+Return <Json>
+    `;
+
+    console.log("expensive googe api run.....");
+
+    // Initialize Google Gemini LLM using its Node.js client
+    try {
+      const result = await model.generateContent(prompt);
+      const description = result.response.text();
+
+      console.log("generated description", description);
+
+      return JSON.parse(description);
+    } catch {
+      
+      return "Error Occured";
+    }
+  }, [jobTitle + jobLocation + companyName]);
 
   return await cachedGeneration();
 }

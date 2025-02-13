@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 "use client";
 
 import { Editor } from "@tiptap/react";
@@ -17,6 +18,7 @@ import {
   Link,
   Undo,
   Redo,
+  SparklesIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Toggle } from "@/components/ui/toggle";
@@ -27,12 +29,41 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
+import { useFormContext } from "react-hook-form";
+import { generateJobDescription } from "@/actions/GoogleGenAi/GoogleGeminiProcess";
+import { useEffect, useState } from "react";
 
 interface MenuBarProps {
   editor: Editor | null;
+  setIsLoading: Function;
 }
 
-export function MenuBar({ editor }: MenuBarProps) {
+interface Formvalues {
+  jobTitle: string | null;
+  location: string | null;
+  employmentType: string | null;
+  companyName: string | null;
+}
+export function MenuBar({ editor, setIsLoading }: MenuBarProps) {
+  const { getValues, formState } = useFormContext();
+  const [formvalues, setFormValues] = useState<Formvalues>({
+    companyName: null,
+    employmentType: null,
+    jobTitle: null,
+    location: null,
+  });
+
+  useEffect(() => {
+    setFormValues(() => {
+      return {
+        jobTitle: getValues("jobTitle"),
+        location: getValues("location"),
+        employmentType: getValues("employmentType"),
+        companyName: getValues("companyName"),
+      };
+    });
+  }, [formState, getValues]);
+
   if (!editor) {
     return null;
   }
@@ -43,6 +74,28 @@ export function MenuBar({ editor }: MenuBarProps) {
       editor.chain().focus().setLink({ href: url }).run();
     }
   };
+
+  async function handleGenerate() {
+    if (
+      formvalues.companyName &&
+      formvalues.employmentType &&
+      formvalues.jobTitle &&
+      formvalues.location 
+    ) {
+      setIsLoading(() => true);
+      const generated_description = await generateJobDescription(
+        formvalues.jobTitle,
+        formvalues.location,
+        formvalues.employmentType,
+        formvalues.companyName
+      );
+      editor?.commands.clearContent();
+      editor?.commands.setContent(generated_description);
+      setIsLoading(() => false);
+    }
+
+    
+  }
 
   return (
     <div className="border border-border rounded-t-lg p-2 bg-card flex flex-wrap gap-1 items-center">
@@ -337,6 +390,24 @@ export function MenuBar({ editor }: MenuBarProps) {
               </Button>
             </TooltipTrigger>
             <TooltipContent>Redo</TooltipContent>
+          </Tooltip>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                size="sm"
+                type="button"
+                variant="ghost"
+                onClick={() => handleGenerate()}
+                disabled={ !formvalues.companyName ||
+                  !formvalues.employmentType ||
+                  !formvalues.jobTitle ||
+                  !formvalues.location }
+              >
+                <SparklesIcon size={5} />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent> Genererate </TooltipContent>
           </Tooltip>
         </div>
       </TooltipProvider>

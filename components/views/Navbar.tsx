@@ -25,7 +25,7 @@ export async function Navbar() {
         { session?.user.userType==="Company" && <Link href="/post-job" className={buttonVariants({ size: "lg" })}>
           Post a Job
         </Link>}
-
+       
         {session?.user ? (
           <UserDropDown
             email={session.user.email as string}

@@ -6,9 +6,10 @@ import StarterKit from "@tiptap/starter-kit";
 import Link from "@tiptap/extension-link";
 import TextAlign from "@tiptap/extension-text-align";
 import Typography from "@tiptap/extension-typography";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { MenuBar } from "./MenuBar";
 import { useFormContext } from "react-hook-form";
+import {   SparklesIcon    } from "lucide-react";
 
 interface JobDescriptionEditorProps {
   field: any;
@@ -54,11 +55,12 @@ export default function JobDescriptionEditor({
     }
   }, [editor, field.value]);
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   return (
     <div className="w-full">
       <div className="border rounded-lg overflow-hidden bg-card">
-        <MenuBar editor={editor} />
-        <EditorContent editor={editor} />
+        <MenuBar editor={editor} setIsLoading={setIsLoading} />
+       {isLoading ? <div className="text-center p-6"> <SparklesIcon className="text-muted-foreground h-[300px] text-center justify-self-center animate-pulse " size={70}/> </div>  :<EditorContent editor={editor}   />}
       </div>
     </div>
   );

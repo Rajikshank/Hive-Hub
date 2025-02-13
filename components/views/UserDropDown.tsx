@@ -1,6 +1,7 @@
 import {
   BriefcaseBusiness,
   ChevronDown,
+  Edit2Icon,
   Heart,
   ListCheckIcon,
   LogOut,
@@ -58,6 +59,13 @@ export function UserDropDown({ email, image, name, userType }: iAppProps) {
               </Link>
             </DropdownMenuItem>
           )}
+            <DropdownMenuItem asChild>
+              <Link href={"/edit-profile"}>
+                <Edit2Icon size={16} strokeWidth={2} className="opacity-60" />
+
+                <span>Edit Profile</span>
+              </Link>
+            </DropdownMenuItem>
           <DropdownMenuItem asChild>
             <Link href={"/my-jobs"}>
               {userType === "JOB_SEEKER" ? (

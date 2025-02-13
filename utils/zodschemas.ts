@@ -14,6 +14,7 @@ export const jobSeekerSchema = z.object({
   name: z.string().min(2, "Name must be atleast 2 charecters long"),
   about: z.string().min(10, "Please add more information about yourself"),
   resume: z.string().min(1, "Please upload your resume"),
+  image: z.string().optional()
 });
 
 export const jobSchema = z.object({

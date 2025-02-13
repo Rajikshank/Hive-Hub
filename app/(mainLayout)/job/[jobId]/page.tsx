@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { deleteSavedJobPost, saveJobPost } from "@/actions/saveJobPostAction";
 import { JsonToHtml } from "@/components/views/JsonToHtml";
-import { SaveJobButton } from "@/components/views/SubmitButton";
+import { ApplyButton, SaveJobButton } from "@/components/views/SubmitButton";
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -376,14 +376,15 @@ export default async function JobIdPage({ params }: { params: Params }) {
                 ATS_Score
               )}
             >
-              <Button
+              <ApplyButton isAlreadyApplied={isAlreadyApplied}  />
+              {/* <Button
                 type="submit"
                 className={"w-full "}
                 variant={isAlreadyApplied ? "secondary" : "default"}
                 disabled={isAlreadyApplied}
               >
                 {isAlreadyApplied ? "Applied" : "Apply Now"}
-              </Button>
+              </Button> */}
             </form>
           </div>
         </Card>

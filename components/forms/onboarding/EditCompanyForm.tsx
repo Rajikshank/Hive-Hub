@@ -1,4 +1,4 @@
-import { createCompany } from "@/actions/createCompanyAction";
+"use client";
 import { UploadDropzone } from "@/components/views/UploadThing";
 import { Button } from "@/components/ui/button";
 import {
@@ -28,20 +28,28 @@ import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { EditCompany } from "@/actions/EditCompanyAction";
+import Link from "next/link";
 
+type Data = {
+  name: string;
+  location: string;
+  about: string;
+  logo: string;
+  website: string;
+  xAccount: string | null;
+};
 
- 
-
-export function CompanyForm( ) {
+export function EditCompanyForm({ data }: { data: Data }) {
   const form = useForm<z.infer<typeof companySchema>>({
     resolver: zodResolver(companySchema),
     defaultValues: {
-      about: "",
-      location: "",
-      name: "",
-      xAccount: "",
-      logo: "",
-      website: "",
+      about: data.about,
+      location: data.location,
+      name: data.name,
+      xAccount: data.xAccount!,
+      logo: data.logo,
+      website: data.website,
     },
   });
 
@@ -50,7 +58,7 @@ export function CompanyForm( ) {
   async function OnSubmit(data: z.infer<typeof companySchema>) {
     try {
       setPending(true);
-      await createCompany(data);
+      await EditCompany(data);
     } catch (error) {
       if (error instanceof Error && error.message !== "NEXT_REDIRECT") {
         console.log("something went wrong...");
@@ -191,7 +199,7 @@ export function CompanyForm( ) {
                       </Button>
                     </div>
                   ) : (
-                    <UploadDropzone 
+                    <UploadDropzone
                       endpoint={"imageUploader"}
                       onClientUploadComplete={(res) => {
                         field.onChange(res[0].url);
@@ -199,7 +207,7 @@ export function CompanyForm( ) {
                       onUploadError={(err) =>
                         console.log("something went wrong", err)
                       }
-                      className="ut-button:hidden rounded-full  ut-button:text-white ut-button:hover:bg-primary/90 ut-label:text-muted-foreground ut-allowed-content:text-muted-foreground border-primary"
+                      className="ut-button:bg-primary rounded-full  ut-button:text-white ut-button:hover:bg-primary/90 ut-label:text-muted-foreground ut-allowed-content:text-muted-foreground border-primary"
                     />
                   )}
                 </div>
@@ -208,9 +216,18 @@ export function CompanyForm( ) {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full" disabled={pending}>
-          {pending ? "Submitting..." : "Continue"}
-        </Button>
+
+        <div className="grid grid-cols-2  gap-20 justify-self-center ">
+          <Button type="submit" className="w-32" disabled={pending}>
+            {pending ? "Submitting..." : "Submit"}
+          </Button>
+
+          <Link className="w-32" href={"/"}>
+            <Button className="w-full " variant={"destructive"} disabled={pending}>
+              Cancel
+            </Button>
+          </Link>
+        </div>
       </form>
     </Form>
   );

@@ -1,10 +1,12 @@
  
+import SearchBar from "@/components/SearchBar";
 import { Separator } from "@/components/ui/separator";
 //import CompanyJobPage from "@/components/views/CompanyJobPage";
 import { JobFilter } from "@/components/views/JobFilters";
 import JobListingLoading from "@/components/views/JobListingLoading";
 import { JobListings } from "@/components/views/JobListings";
 import MainPageWrapper from "@/components/views/MainPageWrapper";
+import { prisma } from "@/utils/db";
 
 import { requireUser } from "@/utils/requireUser";
 import { redirect } from "next/navigation";
@@ -17,6 +19,20 @@ type SearchParams = {
     location?: string;
   }>;
 };
+
+async function GetAllJobPosts(){
+  const data=await prisma.jobPost.findMany({
+    select:{
+      jobTitle:true,
+      location:true,
+      id:true
+    }
+  })
+
+   
+
+  return data 
+}
 
 export default async function Home({ searchParams }: SearchParams) {
   const params = await searchParams;
@@ -33,6 +49,7 @@ export default async function Home({ searchParams }: SearchParams) {
     ","
   )};location=${location}`;
 
+  const jobPosts=await GetAllJobPosts()
   if(user.role && user.role.toLowerCase() === "company" ){
     redirect("/my-jobs")
   }
@@ -48,6 +65,9 @@ export default async function Home({ searchParams }: SearchParams) {
         ) : ( */}
           <>
             {" "}
+            <div className="my-4">
+            <SearchBar jobPosts={jobPosts}/> 
+            </div>
             <JobFilter />
             <Separator className="w-full" />
             <div className="col-span-2 flex flex-col gap-6">
