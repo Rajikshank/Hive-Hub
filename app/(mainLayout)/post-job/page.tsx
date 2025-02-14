@@ -78,17 +78,17 @@ const PostJobPage = async () => {
 
   const data = await getCompany(session.id as string);
   return (
-    <div className="  mt-5">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-5">
       <CreateJobForm
         companyXAccount={data.xAccount}
         companyLogo={data.logo}
         companyName={data.name}
         companyWebsite={data.website}
         companyAbout={data.about}
-        companyLocation={data.location} 
+        companyLocation={data.location}
       />
 
-      {/* <div className="col-span-1">
+      <div className="col-span-1">
         <Card className="lg:sticky lg:top-4">
           <CardHeader>
             <CardTitle className="text-xl">
@@ -99,7 +99,7 @@ const PostJobPage = async () => {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-           
+            {/* Company Logos */}
             <div className="grid grid-cols-3 gap-4">
               {companies.map((company) => (
                 <div
@@ -116,7 +116,8 @@ const PostJobPage = async () => {
                 </div>
               ))}
             </div>
- 
+
+            {/* Testimonials */}
             <div className="space-y-4">
               {testimonials.map((testimonial, index) => (
                 <blockquote
@@ -133,7 +134,7 @@ const PostJobPage = async () => {
               ))}
             </div>
 
-        
+            {/* Stats */}
             <div className="grid grid-cols-2 gap-4">
               {stats.map((stat, index) => (
                 <div key={index} className="rounded-lg bg-muted p-4">
@@ -146,7 +147,7 @@ const PostJobPage = async () => {
             </div>
           </CardContent>
         </Card>
-      </div> */}
+      </div>
     </div>
   );
 };
