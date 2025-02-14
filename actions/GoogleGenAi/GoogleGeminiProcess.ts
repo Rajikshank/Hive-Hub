@@ -118,22 +118,22 @@ export async function generateJobDescription(
 
 The job description should include these sections(no need to include a title as already the title will be displayed from the data):
 
-1. **Job Overview:**  
+1. **Job Overview:**(style:h1 bold text title only)  
    Provide a concise summary of the role, including its key purpose and impact within the company.
 
-2. **Key Responsibilities:**  
+2. **Key Responsibilities:** (style: h3 bold text title only)  
    List the main duties and responsibilities associated with the position in a clear, bullet-point format.
 
-3. **Qualifications:**  
+3. **Qualifications:**  (style: h3 bold text title only) 
    Outline the required skills, experiences, and educational background. Include any preferred qualifications that would make a candidate stand out.
 
-4. **Company Overview:**  
+4. **Company Overview:**  (style: h3 bold text title only) 
    Describe {companyName} in a way that highlights its culture, mission, and unique qualities. Explain why this company is a great place to work.
 
-5. **Benefits & Perks:**  
+5. **Benefits & Perks:**  (style: h3 bold text title only) 
    Detail any benefits, perks, or incentives that the company offers, such as health insurance, remote work options, career development opportunities, etc.
 
-6. **Application Process:**  
+6. **Application Process:**  (style: h3 bold text title only) 
    Provide instructions on how candidates can apply, along with any relevant deadlines or additional steps.
 
 Ensure the tone is professional, inviting, and tailored to attract high-quality candidates. The rich text format should include clear headings and should be compatible for the tip-tap rich text editor , bullet points, and appropriate emphasis where necessary.
@@ -143,6 +143,7 @@ Make sure the description includes these:
 --Ats friendly words for the relevant job
 --emoji's and other word styling if needed
 --ensure the it matches the tiptap compatible rich text
+--return only the job description nothing more nothing less
 
 Return <Json>
     `;
