@@ -58,7 +58,7 @@ export async function LoginForm() {
   const session = await auth();
 
   if (session?.user) {
-    return redirect("/");
+    return redirect("/main");
   }
   return (
     <div className="flex flex-col gap-6">

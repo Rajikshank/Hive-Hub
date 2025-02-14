@@ -9,7 +9,7 @@ export async function Navbar() {
   const session = await auth();
   return (
     <nav className="flex items-center justify-between py-5">
-      <Link className="flex items-center gap-2" href="/">
+      <Link className="flex items-center gap-2" href="/main">
 
  
         <Image src={Logo} alt="Logo" width={40} className="rounded-md" height={40} /> 

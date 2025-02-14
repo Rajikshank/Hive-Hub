@@ -43,5 +43,5 @@ export async function createJobSeeker(data: z.infer<typeof jobSeekerSchema>) {
     },
   });
 
-  return redirect("/");
+  return redirect("/main");
 }

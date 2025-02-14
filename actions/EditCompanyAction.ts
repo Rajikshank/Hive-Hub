@@ -37,5 +37,5 @@ export async function EditCompany(data: z.infer<typeof companySchema>) {
     },
   });
 
-  return redirect("/");
+  return redirect("/main");
 }

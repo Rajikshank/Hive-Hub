@@ -1,12 +1,16 @@
 "use client"
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
+import user1 from "@/public/user1.png"
+import user2 from "@/public/user2.png"
+import user3 from "@/public/user3.png"
+
 
 interface Testimonial {
   name: string
   role: string
   company: string
   quote: string
-  avatar: string
+  avatar: StaticImageData
 }
 
 const testimonials: Testimonial[] = [
@@ -15,21 +19,21 @@ const testimonials: Testimonial[] = [
     role: "HR Manager",
     company: "TechCorp",
     quote: "JobBoard has revolutionized our hiring process. We've found top talent faster than ever before!",
-    avatar: "/placeholder.svg?height=100&width=100",
+    avatar: user1,
   },
   {
     name: "Michael Chen",
     role: "Software Engineer",
     company: "StartupX",
     quote: "I landed my dream job through JobBoard. The platform is intuitive and the job matches are spot-on.",
-    avatar: "/placeholder.svg?height=100&width=100",
+    avatar: user2,
   },
   {
     name: "Emily Rodriguez",
     role: "Marketing Director",
     company: "GrowthCo",
     quote: "As a hiring manager, JobBoard has made it incredibly easy to find qualified candidates quickly.",
-    avatar: "/placeholder.svg?height=100&width=100",
+    avatar: user3,
   },
 ]
 

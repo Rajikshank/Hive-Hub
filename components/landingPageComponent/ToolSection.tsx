@@ -4,12 +4,14 @@
 import { motion } from "framer-motion"
 import { Database, Server, Shield, Search, Sparkles } from "lucide-react"
 import Image from "next/image"
+import nexjs from "@/public/Next.js_wordmark_dark.svg"
+
 
 const tools = [
   {
     name: "Next.js",
     icon: (props: any) => (
-      <Image src="/placeholder.svg?height=40&width=40" alt="Next.js" width={40} height={40} {...props} />
+      <Image src={nexjs} alt="Next.js" className="py-2" width={90} height={90} {...props} />
     ),
     description: "React framework for building fast and scalable web applications",
   },

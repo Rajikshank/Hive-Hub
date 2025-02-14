@@ -10,6 +10,25 @@ export default withUt({
   ],
   theme: {
     extend: {
+      keyframes: {
+        typing: {
+          "0%": {
+            width: "0%",
+            visibility: "hidden",
+          },
+          "100%": {
+            width: "100%",
+          },
+        },
+        blink: {
+          "50%": {
+            borderColor: "transparent",
+          },
+          "100%": { borderColor: "black" },
+        },
+      }, animation:{
+        typing:"typing 2s steps(30) infinite alternate, blink .7s infinite"
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -60,5 +79,5 @@ export default withUt({
     },
   },
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  plugins: [require("tailwindcss-animate"),require('@tailwindcss/typography') ],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 }) satisfies Config;

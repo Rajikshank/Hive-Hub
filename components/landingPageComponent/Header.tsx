@@ -4,12 +4,14 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Logo from "@/public/logo.png"
+import { useRouter } from "next/navigation"
 
 export function Header() {
+  const router =useRouter()
   return (
     <header className="fixed  top-0 left-0 right-0 z-50 bg-black bg-opacity-20 backdrop-blur-md">
       <div className="  max-w-7xl  mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-3xl font-bold flex gap-2 text-white">
+        <Link href="/main" className="text-3xl font-bold flex gap-2 text-white">
         <Image src={Logo} alt="Logo" width={40} className="rounded-md" height={40} /> 
           Hive<span className="text-primary">Hub</span>
         </Link>
@@ -23,13 +25,13 @@ export function Header() {
           <Link href="#tools" className="text-white hover:text-primary transition-colors">
             Our Tech
           </Link>
-          <Button
-            variant="secondary"
+          <Button onClick={()=>router.push("/login")}
+            variant="default" className="bg-primary text-white hover:bg-primary/90 transition-colors"
             
           >
             Log In
           </Button>
-          <Button className="bg-primary text-white hover:bg-primary/90 transition-colors">Sign Up</Button>
+          {/* <Button className="bg-primary text-white hover:bg-primary/90 transition-colors">Sign Up</Button> */}
         </nav>
       </div>
     </header>
