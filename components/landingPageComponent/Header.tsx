@@ -26,7 +26,7 @@ export function Header() {
             Our Tech
           </Link>
           <Button onClick={()=>router.push("/login")}
-            variant="secondary" className="    transition-colors"
+            variant="outline" className="     transition-colors"
             
           >
             Log In

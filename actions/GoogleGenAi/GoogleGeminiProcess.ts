@@ -3,6 +3,8 @@ import pdfParse from "pdf-parse";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import fetchPdf from "./fetchFile";
 import { unstable_cache } from "next/cache";
+import { request } from "@arcjet/next";
+import { aj } from "@/utils/protection-rules";
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY!);
 const model = genAI.getGenerativeModel({
   model: "gemini-2.0-flash",
@@ -14,6 +16,12 @@ export default async function geminiGenerate(
   jobDescription: string,
   resumeUrl: string
 ) {
+  const req = await request();
+  const decision = await aj.protect(req);
+
+  if (decision.isDenied()) {
+    throw new Error("Forbidden");
+  }
   const cachedGeneration = unstable_cache(async () => {
     const fileBuffer = await fetchPdf(resumeUrl);
 
@@ -70,6 +78,12 @@ export default async function geminiGenerate(
 }
 
 export async function generateResumeKeywords(resumeUrl: string) {
+  const req = await request();
+  const decision = await aj.protect(req);
+
+  if (decision.isDenied()) {
+    throw new Error("Forbidden");
+  }
   const cachedGeneration = unstable_cache(async () => {
     const fileBuffer = await fetchPdf(resumeUrl);
 
@@ -105,6 +119,12 @@ export async function generateJobDescription(
   employementType: string,
   companyName: string
 ) {
+  const req = await request();
+  const decision = await aj.protect(req);
+
+  if (decision.isDenied()) {
+    throw new Error("Forbidden");
+  }
   const cachedGeneration = unstable_cache(async () => {
     // Construct a prompt with both resume text and job description
 
@@ -159,7 +179,6 @@ Return <Json>
 
       return JSON.parse(description);
     } catch {
-      
       return "Error Occured";
     }
   }, [jobTitle + jobLocation + companyName]);
