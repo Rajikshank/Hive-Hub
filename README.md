@@ -14,7 +14,7 @@
 
 ## 🔮 Vision
 
-Hive Hub revolutionizes the recruitment landscape by leveraging cutting-edge AI technologies and vector-based matching algorithms. Our platform seamlessly integrates Google Gemini's Generative AI LLM with Pinecone's vector database infrastructure to deliver unprecedented job matching precision and recruitment automation.
+Hive Hub is a Next.js-based job portal that leverages the power of Google Gemini Generative AI (LLM) to provide intelligent job recommendations through a Pinecone vector database, ensuring highly accurate and personalized job matches based on user profiles and preferences. The platform also features automated job description generation and ATS (Applicant Tracking System) score calculation, helping candidates assess and optimize their resumes for better job application outcomes. Built with a PostgreSQL database integrated with vector support for storing and querying embeddings, Hive Hub demonstrates the seamless integration of LangChain for LLM operations and Prisma ORM for efficient database management. This project was developed solely for educational purposes to explore advanced AI-driven solutions in recruitment technology.
 
 ## 🎯 Features
 
