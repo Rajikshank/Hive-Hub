@@ -16,7 +16,7 @@
 
 Hive Hub revolutionizes the recruitment landscape by leveraging cutting-edge AI technologies and vector-based matching algorithms. Our platform seamlessly integrates Google Gemini's Generative AI LLM with Pinecone's vector database infrastructure to deliver unprecedented job matching precision and recruitment automation.
 
-## 🎯 Feature Demonstrations
+## 🎯 Features
 
 ### ATS Score Calculation
 ![Hive Hub - Google Chrome 2_14_2025 3_10_10 PM](https://github.com/user-attachments/assets/1a919ed7-4a6a-4f1a-b366-3285563c5ce2)
@@ -53,7 +53,7 @@ https://github.com/user-attachments/assets/d59dbe68-90f5-45c5-b6af-72ca51bd0dfa
 
  
 
-## 🛠️ Technical Architecture
+## 🛠️ Technical Details
 
 ### Frontend 
 - **Next.js 15:** Server-side rendering with advanced routing capabilities
