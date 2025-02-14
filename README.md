@@ -100,7 +100,7 @@ NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=<stripe-publishable-key>
 
 Access the live platform at [https://hive-hub-zeta.vercel.app/](https://hive-hub-zeta.vercel.app/)
 
-## 📬 Connect With Us
+## 📬 Connect With Me
 
 - **GitHub:** [https://github.com/Rajikshank](https://github.com/Rajikshank)
 - **Email:** [krajikshan637@gmail.com](mailto:krajikshan637@gmail.com)
