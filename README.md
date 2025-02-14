@@ -23,7 +23,11 @@ Hive Hub revolutionizes the recruitment landscape by leveraging cutting-edge AI 
 *Our advanced ATS scoring system provides real-time feedback and optimization suggestions*
 
 ### Job Description Generation
-https://github.com/user-attachments/assets/25fb9b77-0f79-4650-ac18-ec51dc2f7627
+
+
+https://github.com/user-attachments/assets/d59dbe68-90f5-45c5-b6af-72ca51bd0dfa
+
+
 *AI-powered job description generator with industry-specific templates*
 
 ### Smart Recommendations
