@@ -17,6 +17,7 @@ type SearchParams = {
     page?: string;
     jobTypes?: string;
     location?: string;
+    search?:string |null 
   }>;
 };
 
@@ -44,6 +45,7 @@ export default async function Home({ searchParams }: SearchParams) {
   const jobTypes = params.jobTypes?.split(",") || [];
 
   const location = params.location || "";
+  // const SearchQuery = params.search || null;
 
   const filterKey = `page=${currenPage};types=${jobTypes.join(
     ","
@@ -66,7 +68,7 @@ export default async function Home({ searchParams }: SearchParams) {
           <>
             {" "}
             <div className="my-4">
-            <SearchBar jobPosts={jobPosts}/> 
+            <SearchBar jobPosts={jobPosts} /> 
             </div>
             <JobFilter />
             <Separator className="w-full" />

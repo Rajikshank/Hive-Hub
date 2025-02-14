@@ -26,7 +26,7 @@ export function Header() {
             Our Tech
           </Link>
           <Button onClick={()=>router.push("/login")}
-            variant="default" className="bg-primary text-white hover:bg-primary/90 transition-colors"
+            variant="secondary" className="    transition-colors"
             
           >
             Log In
