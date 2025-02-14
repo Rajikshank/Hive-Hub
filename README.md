@@ -19,15 +19,15 @@ Hive Hub revolutionizes the recruitment landscape by leveraging cutting-edge AI 
 ## 🎯 Feature Demonstrations
 
 ### ATS Score Calculation
-![ATS Score Demo](./public/demos/ats-score-demo.png)
+![Hive Hub - Google Chrome 2_14_2025 3_10_10 PM](https://github.com/user-attachments/assets/1a919ed7-4a6a-4f1a-b366-3285563c5ce2)
 *Our advanced ATS scoring system provides real-time feedback and optimization suggestions*
 
 ### Job Description Generation
-![Job Description Demo](./public/demos/job-desc-demo.png)
+https://github.com/user-attachments/assets/25fb9b77-0f79-4650-ac18-ec51dc2f7627
 *AI-powered job description generator with industry-specific templates*
 
 ### Smart Recommendations
-![Recommendation Demo](./public/demos/recommendation-demo.png)
+![Hive Hub - Google Chrome 2_14_2025 3_10_29 PM](https://github.com/user-attachments/assets/a301b0c7-483c-49ac-b86f-a09a0fe18cfc)
 *Vector-based job matching system showing personalized recommendations*
 
 ## 🚀 Core Capabilities
