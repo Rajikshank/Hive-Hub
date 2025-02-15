@@ -39,7 +39,8 @@ https://github.com/user-attachments/assets/d59dbe68-90f5-45c5-b6af-72ca51bd0dfa
 *AI-powered job description generator with industry-specific templates*
 
 ### Smart Recommendations
-![Hive Hub - Google Chrome 2_14_2025 3_10_29 PM](https://github.com/user-attachments/assets/a301b0c7-483c-49ac-b86f-a09a0fe18cfc)
+![Login – Vercel - Google Chrome 2_15_2025 10_51_59 AM](https://github.com/user-attachments/assets/2747578b-a68c-49e3-a319-79adb9dd053c)
+
 *Vector-based job matching system showing personalized recommendations*
 
 
@@ -61,7 +62,7 @@ https://github.com/user-attachments/assets/d59dbe68-90f5-45c5-b6af-72ca51bd0dfa
 - **Industry-Standard Templates:** Pre-configured frameworks for consistent formatting
 - **Dynamic Customization:** Automated adaptation based on role requirements
 
-## Smart Search Box with Auto-Completion
+### Smart Search Box with Auto-Completion
 
 - **Auto-Completion:** Suggests job titles dynamically based on user input.
 - **Fuzzy Search:** Matches partial queries to provide relevant results.
