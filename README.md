@@ -22,6 +22,14 @@ Hive Hub is a Next.js-based job portal that leverages the power of Google Gemini
 ![Hive Hub - Google Chrome 2_14_2025 3_10_10 PM](https://github.com/user-attachments/assets/1a919ed7-4a6a-4f1a-b366-3285563c5ce2)
 *Our advanced ATS scoring system provides real-time feedback and optimization suggestions*
 
+### Smart Search Suggestion
+ 
+
+https://github.com/user-attachments/assets/ca913ca6-ffbe-426a-9c02-bdfcf4097c5d
+
+
+*Search suggestion with auto completion*
+
 ### Job Description Generation
 
 
@@ -33,6 +41,8 @@ https://github.com/user-attachments/assets/d59dbe68-90f5-45c5-b6af-72ca51bd0dfa
 ### Smart Recommendations
 ![Hive Hub - Google Chrome 2_14_2025 3_10_29 PM](https://github.com/user-attachments/assets/a301b0c7-483c-49ac-b86f-a09a0fe18cfc)
 *Vector-based job matching system showing personalized recommendations*
+
+
 
 ## 🚀 Core Capabilities
 
@@ -51,6 +61,11 @@ https://github.com/user-attachments/assets/d59dbe68-90f5-45c5-b6af-72ca51bd0dfa
 - **Industry-Standard Templates:** Pre-configured frameworks for consistent formatting
 - **Dynamic Customization:** Automated adaptation based on role requirements
 
+## Smart Search Box with Auto-Completion
+
+- **Auto-Completion:** Suggests job titles dynamically based on user input.
+- **Fuzzy Search:** Matches partial queries to provide relevant results.
+- **Case-Insensitive Search:** Ensures a smooth search experience.
  
 
 ## 🛠️ Technical Details
