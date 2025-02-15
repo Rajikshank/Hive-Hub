@@ -204,7 +204,7 @@ export default async function MyJobPage() {
                           ) : (
                             <>
                               <DropdownMenuItem asChild>
-                                <Link href={`/my-jobs/${listing.id}/delete`}>
+                                <Link href={`/my-jobs/${listing.id}/cancel`}>
                                   <XCircle />
                                   Cancel
                                 </Link>

@@ -45,7 +45,7 @@ export default async function Home({ searchParams }: SearchParams) {
   const jobTypes = params.jobTypes?.split(",") || [];
 
   const location = params.location || "";
-  // const SearchQuery = params.search || null;
+   const SearchQuery = params.search || null;
 
   const filterKey = `page=${currenPage};types=${jobTypes.join(
     ","
@@ -78,6 +78,7 @@ export default async function Home({ searchParams }: SearchParams) {
                   location={location}
                   jobTypes={jobTypes}
                   currentPage={currenPage}
+                  SearchQuery={SearchQuery}
                 />
               </Suspense>
             </div>{" "}
