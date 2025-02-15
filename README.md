@@ -114,6 +114,7 @@ NEXTAUTH_URL=http://localhost:3000
 STRIPE_SECRET_KEY=<stripe-secret-key>
 STRIPE_WEBHOOK_SECRET=<stripe-webhook-secret>
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=<stripe-publishable-key>
+GOOGLE_API_KEY=<Your_GOOGLE_API_KEY>
 ```
 
 ## 🌐 Deployment
